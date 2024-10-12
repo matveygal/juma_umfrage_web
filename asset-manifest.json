@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/juma_umfrage_web/static/css/main.9d1b97fa.css",
+    "main.js": "/juma_umfrage_web/static/js/main.375580b7.js",
+    "index.html": "/juma_umfrage_web/index.html",
+    "main.9d1b97fa.css.map": "/juma_umfrage_web/static/css/main.9d1b97fa.css.map",
+    "main.375580b7.js.map": "/juma_umfrage_web/static/js/main.375580b7.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.9d1b97fa.css",
+    "static/js/main.375580b7.js"
+  ]
+}
