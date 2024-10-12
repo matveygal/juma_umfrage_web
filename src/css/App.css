@@ -1,0 +1,94 @@
+.app-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: Arial, sans-serif;
+    margin-top: 50px;
+}
+
+.input-fields {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.input-field, .toggle-switch {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.input-field label, .toggle-switch label {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.input-field input, .toggle-switch input {
+    width: 100%;
+    padding: 5px;
+    font-size: 16px;
+    text-align: center;
+}
+
+/* Toggle switch style */
+.toggle-switch {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.toggle-switch input[type="checkbox"] {
+    appearance: none;
+    width: 40px;
+    height: 20px;
+    background-color: #ddd;
+    border-radius: 20px;
+    position: relative;
+    cursor: pointer;
+    outline: none;
+    transition: background-color 0.3s;
+}
+
+.toggle-switch input[type="checkbox"]:checked {
+    background-color: #007bff;
+}
+
+.toggle-switch input[type="checkbox"]::after {
+    content: '';
+    width: 18px;
+    height: 18px;
+    background-color: white;
+    border-radius: 50%;
+    position: absolute;
+    top: 1px;
+    left: 1px;
+    transition: left 0.3s;
+}
+
+.toggle-switch input[type="checkbox"]:checked::after {
+    left: 21px;
+}
+
+.calculate-button {
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #fff;
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.calculate-button:hover {
+    background-color: #0056b3;
+}
+
+.result-label {
+    margin-top: 20px;
+    font-size: 20px;
+    color: #333;
+}

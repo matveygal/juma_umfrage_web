@@ -1,25 +1,67 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
+import InputField from './components/InputField';
+import ResultLabel from './components/ResultLabel';
+import CalculateButton from './components/CalculateButton';
+import ToggleSwitch from './components/ToggleSwitch';
+import { calculateResult } from './Calculate';
+import './css/App.css';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    const [inputValues, setInputValues] = useState({
+        plus_param: 1,
+        minus_param: 1,
+        start_value: 1,
+        n: 10
+    });
+    const [toggleValue, setToggleValue] = useState(false);
+    const [result, setResult] = useState([]);
+
+    const handleInputChange = (name, value) => {
+        setInputValues(prevValues => ({ ...prevValues, [name]: parseInt(value) || 0 }));
+    };
+
+    const handleToggleChange = () => {
+        setToggleValue(prev => !prev);
+    };
+
+    const handleCalculateClick = () => {
+        setResult(calculateResult(inputValues, toggleValue));
+    };
+
+    return (
+        <div className="app-container">
+            <h2>Enter Values</h2>
+            <div className="input-fields">
+                <InputField
+                    label="Plus Param"
+                    name="plus_param"
+                    defaultValue={inputValues.plus_param}
+                    onChange={handleInputChange}
+                />
+                <InputField
+                    label="Minus Param"
+                    name="minus_param"
+                    defaultValue={inputValues.minus_param}
+                    onChange={handleInputChange}
+                />
+                <InputField
+                    label="Start Value"
+                    name="start_value"
+                    defaultValue={inputValues.start_value}
+                    onChange={handleInputChange}
+                />
+                <InputField
+                    label="N"
+                    name="n"
+                    defaultValue={inputValues.n}
+                    onChange={handleInputChange}
+                />
+            </div>
+            <ToggleSwitch label="Toggle Effect" value={toggleValue} onChange={handleToggleChange} />
+            <CalculateButton onClick={handleCalculateClick} />
+            <ResultLabel result={result} />
+        </div>
+    );
 }
 
 export default App;
