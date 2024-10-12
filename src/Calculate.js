@@ -71,7 +71,7 @@ export function calculateResult({ plus_param, minus_param, start_value, n }, deb
     let prob = 0
 
     for (let i = 0; i < n; i++) {
-        const t = res[i] / (Math.pow(2, (plus_param + 1) * i + start_value))
+        const t = res[i] / (Math.pow(2, Math.ceil((start_value + plus_param*i)/minus_param) + i))
         prob += t
         console.log(t)
 
