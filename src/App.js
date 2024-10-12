@@ -15,6 +15,7 @@ function App() {
     });
     const [toggleValue, setToggleValue] = useState(false);
     const [result, setResult] = useState([]);
+    const [prob, setProb] = useState(0);
 
     const handleInputChange = (name, value) => {
         setInputValues(prevValues => ({ ...prevValues, [name]: parseInt(value) || 0 }));
@@ -25,7 +26,9 @@ function App() {
     };
 
     const handleCalculateClick = () => {
-        setResult(calculateResult(inputValues, toggleValue));
+        const calculateOutput = calculateResult(inputValues, toggleValue)
+        setResult(calculateOutput.res);
+        setProb(calculateOutput.prob)
     };
 
     return (
@@ -59,6 +62,7 @@ function App() {
             </div>
             <ToggleSwitch label="Toggle Effect" value={toggleValue} onChange={handleToggleChange} />
             <CalculateButton onClick={handleCalculateClick} />
+            <ResultLabel result={prob} text="Prob:" />
             <ResultLabel result={result} />
         </div>
     );
